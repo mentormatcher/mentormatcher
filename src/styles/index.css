@@ -1,0 +1,156 @@
+html,
+body {
+  animation: no_scroll 20s;
+}
+
+/*
+ ID SELECTORS
+*/
+#myForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+  margin: 2em;
+}
+
+/*
+ CLASS SELECTORS
+*/
+.file-inputs {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* padding: 2em; */
+}
+
+.file-input {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075);
+}
+
+
+.steps-tracker-svg {
+  width: 300px;
+}
+
+.svg-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.logo {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* animation: spin 1s 2, shift_up 2s 1 3s forwards; */
+  animation: shift_up 1s 1 2s forwards;
+}
+
+.logo img {
+  width: 10vw;
+  animation: grow 1s 1 2s forwards;
+}
+
+.loader {
+  border-radius: 100%;
+  -webkit-box-shadow: inset -2px 0 0 0px #0062a5;
+  box-shadow: inset -2px 0 0 0px #0062a5;
+  height: 12vw;
+  width: 12vw;
+  animation: spin 0.5s 3 linear;
+}
+
+.loader-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  animation: disappear 0.5s 1 1.25s forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes shift_up {
+  0% {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  100% {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 25vh;
+    min-height: 250px;
+    margin-top: 2rem;
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 10vw;
+  }
+
+  100% {
+    width: 20vw;
+  }
+}
+
+@keyframes no_scroll {
+  from {
+    overflow-y: hidden;
+  }
+
+  to {
+    overflow-y: visible;
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes disappear {
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
+}
