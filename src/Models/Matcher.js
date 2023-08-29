@@ -59,7 +59,7 @@ export default class Matcher {
    * @returns the answer for the given question
    */
   getAnswer(user, idx) {
-    return user.responses[idx].answer;
+    return user.responses[idx].answer || '';
   }
 
   /**
@@ -67,10 +67,8 @@ export default class Matcher {
    * @param {String} mentor_answer
    * @returns {number}
    */
-  get_score(mentee_answer, mentor_answer, weight) {
+  get_score(mentee_answer = '', mentor_answer = '', weight) {
     let questions_asked = parseInt(localStorage.getItem('questions_asked'));
-
-    console.log(weight);
 
     const similarity_score =
       compareTwoStrings(mentee_answer, mentor_answer) * 100;

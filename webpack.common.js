@@ -19,7 +19,7 @@ const config = [
 
 const entryHtmlPlugins = config.map(({ page, script }) => {
   return new HtmlWebpackPlugin({
-    filename: path.join(__dirname, 'docs', `${page}.html`),
+    filename: path.join(__dirname, 'public', `${page}.html`),
     template: path.join(__dirname, 'src', 'pages', `${page}.html`),
     chunks: [script],
   });
